@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
 	return (
-		<div>
+		<div className="dark:bg-slate-900">
 			<Container>
-				<body className="dark:bg-slate-900 w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
+				<body className=" w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
 					<main className=" w-full max-w-md mx-auto p-6">
 						<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
 							<div className="p-4 sm:p-7">
@@ -73,7 +73,7 @@ const Register = () => {
 													<input
 														type="text"
 														name="name"
-														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
 														required
 														placeholder="Enter your name"
 													/>
@@ -87,7 +87,7 @@ const Register = () => {
 													<input
 														type="email"
 														name="email"
-														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
 														required
 														placeholder="Enter your email"
 													/>
@@ -102,9 +102,23 @@ const Register = () => {
 													<input
 														type="password"
 														name="password"
-														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
 														required
 														placeholder="Enter your password"
+													/>
+												</div>
+											</div>
+											<div>
+												<label className="block text-sm mb-2 dark:text-white">
+													Photo URL
+												</label>
+												<div className="relative">
+													<input
+														type="password"
+														name="password"
+														className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+														required
+														placeholder="Enter a photo URL"
 													/>
 												</div>
 											</div>
