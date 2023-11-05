@@ -39,7 +39,7 @@ const Error = () => {
 							to={'/'}
 							className="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3"
 						>
-							<a className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-sky-500 hover:text-sky-600 focus:outline-none focus:ring-2 ring-offset-white focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 dark:ring-offset-slate-900 hover:bg-gray-200 hover:cursor-pointer">
+							<a className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-sky-500 hover:text-sky-600 focus:outline-none focus:ring-2 ring-offset-white focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 dark:ring-offset-slate-900 hover:bg-gray-200 dark:hover:bg-slate-700 hover:cursor-pointer">
 								<svg
 									className="w-2.5 h-2.5"
 									width="16"
@@ -62,7 +62,7 @@ const Error = () => {
 					<footer className="mt-auto text-center py-5">
 						<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 							<p className="text-sm text-gray-500">
-								© All Rights Reserved. 2023.
+								Ride-Meat © All Rights Reserved. 2023.
 							</p>
 						</div>
 					</footer>

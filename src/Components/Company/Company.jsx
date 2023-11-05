@@ -8,6 +8,7 @@ import brand7 from '../../assets/Images/uber3.png';
 import brand8 from '../../assets/Images/lyft.png';
 
 import './company.css';
+import CountUp from 'react-countup';
 
 const Company = () => {
 	return (
@@ -48,28 +49,28 @@ const Company = () => {
 					<div className="grid grid-cols-12 sm:flex sm:justify-center gap-6 sm:gap-x-12 lg:gap-x-20">
 						<div className="col-span-6 text-center">
 							<h4 className="text-xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-								250+
+								<CountUp end={250} suffix="+" duration={3.5}></CountUp>
 							</h4>
 							<h4 className="text-sm text-gray-600 dark:text-gray-400">
-								Components
+								Available Routes
 							</h4>
 						</div>
 
 						<div className="col-span-6 text-center">
 							<h4 className="text-xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-								160+
+								<CountUp end={180} suffix="+" duration={3.5}></CountUp>
 							</h4>
 							<h4 className="text-sm text-gray-600 dark:text-gray-400">
-								Starter Pages & Examples
+								Active Users & Carpoolers
 							</h4>
 						</div>
 
 						<div className="col-start-4 col-span-6 text-center">
 							<h4 className="text-xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-								10+
+								<CountUp end={10} suffix="+" duration={3.5}></CountUp>
 							</h4>
 							<h4 className="text-sm text-gray-600 dark:text-gray-400">
-								Tailwind CSS Plugins
+								Specialized Carpooling Features
 							</h4>
 						</div>
 					</div>
