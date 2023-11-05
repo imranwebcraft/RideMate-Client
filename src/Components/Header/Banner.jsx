@@ -45,7 +45,8 @@ const Banner = () => {
 
 				<div className="mt-5 text-center mx-auto">
 					<h1 className="block font-bold text-gray-800 text-4xl md:text-4xl lg:text-5xl dark:text-gray-200">
-						Connecting Journeys, Sharing Adventures
+						Connecting Ride . Sharing Adventures .
+						{/* Carpooling Community: Drive. Share. Thrive */}
 					</h1>
 				</div>
 

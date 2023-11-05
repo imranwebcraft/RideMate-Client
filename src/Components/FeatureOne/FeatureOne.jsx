@@ -1,4 +1,4 @@
-import Container from '../../Components/Container/Container';
+import Container from '../Container/Container';
 import featureOne from '../../assets/Images/FeatureOne.jpg';
 import bloob from '../../assets/SVG/bloobleft.svg';
 
