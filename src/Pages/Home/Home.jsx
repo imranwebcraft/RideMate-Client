@@ -1,7 +1,15 @@
+import Container from '../../Components/Container/Container';
+
 const Home = () => {
 	return (
 		<div>
-			<p>Home</p>
+			<Container>
+				<p>Home</p>
+				<p>Home</p>
+				<p>Home</p>
+				<p>Home</p>
+				<p>Home</p>
+			</Container>
 		</div>
 	);
 };
