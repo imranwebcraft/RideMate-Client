@@ -14,11 +14,11 @@ const Banner = () => {
 						>
 							Connect your ride partner
 							<span className="flex items-center gap-x-1">
-								<span className="border-l border-gray-200 text-blue-600 pl-2 dark:text-blue-500">
+								<span className="border-l border-gray-200 text-sky-600 pl-2 dark:text-sky-500">
 									Explore
 								</span>
 								<svg
-									className="w-2.5 h-2.5 text-blue-600"
+									className="w-2.5 h-2.5 text-sky-600"
 									width="16"
 									height="16"
 									viewBox="0 0 16 16"
@@ -73,7 +73,7 @@ const Banner = () => {
 							scale: 1.1,
 							rotate: 0,
 						}}
-						className="mt-6 grid gap-3 w-full sm:inline-flex sm:justify-center"
+						className="mt-6 grid gap-3 w-full sm:inline-flex sm:justify-center px-6"
 					>
 						<a className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-sky-500 to-sky-400 hover:from-sky-400 hover:to-sky-500 border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white py-3 px-4 dark:focus:ring-offset-gray-800 hover:cursor-pointer">
 							<FaCarTunnel className=" text-base"></FaCarTunnel>
