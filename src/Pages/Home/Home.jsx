@@ -1,14 +1,11 @@
 import Container from '../../Components/Container/Container';
+import Banner from '../../Components/Header/Banner';
 
 const Home = () => {
 	return (
 		<div>
 			<Container>
-				<p>Home</p>
-				<p>Home</p>
-				<p>Home</p>
-				<p>Home</p>
-				<p>Home</p>
+				<Banner></Banner>
 			</Container>
 		</div>
 	);
