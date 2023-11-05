@@ -6,6 +6,7 @@ const Footer = () => {
 		<footer className="relative  dark:bg-gray-800 dark:text-gray-100">
 			<Container>
 				<div className="flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+					{/* Logo */}
 					<div className="lg:w-1/3">
 						<a
 							rel="noopener noreferrer"
@@ -19,10 +20,12 @@ const Footer = () => {
 							</span>
 						</a>
 					</div>
-					<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-						<div className="space-y-3">
-							<h3 className="tracki uppercase dark:text-gray-50">Explore</h3>
-							<ul className="space-y-2">
+					<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 lg:grid-cols-4">
+						<div className="space-y-3 mx-auto md:self-start">
+							<h3 className="uppercase dark:text-gray-50 text-base font-bold text-gray-800">
+								Explore
+							</h3>
+							<ul className="space-y-4">
 								<li>
 									<a className="hover:underline hover:cursor-pointer">
 										How It Works
@@ -39,15 +42,15 @@ const Footer = () => {
 									</a>
 								</li>
 								<li>
-									<a className="hover:underline hover:cursor-pointer">
-										Frequently Asked Questions
-									</a>
+									<a className="hover:underline hover:cursor-pointer">FAQ</a>
 								</li>
 							</ul>
 						</div>
-						<div className="space-y-3">
-							<h3 className="tracki uppercase dark:text-gray-50">About Us</h3>
-							<ul className="space-y-2">
+						<div className="space-y-3  self-center mx-auto md:self-start ">
+							<h3 className="uppercase dark:text-gray-50 text-base font-bold text-gray-800">
+								About Us
+							</h3>
+							<ul className="space-y-4">
 								<li>
 									<a className="hover:underline hover:cursor-pointer">
 										Our Story
@@ -60,7 +63,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<a className="hover:underline hover:cursor-pointer">
-										Terms of Service
+										Terms of service
 									</a>
 								</li>
 								<li>
@@ -70,9 +73,12 @@ const Footer = () => {
 								</li>
 							</ul>
 						</div>
-						<div className="space-y-3">
-							<h3 className="uppercase dark:text-gray-50">For Drivers</h3>
-							<ul className="space-y-2">
+
+						<div className="space-y-3 self-center mx-auto pl-4 md:pl-0 md:self-start">
+							<h3 className="uppercase dark:text-gray-50 text-base font-bold text-gray-800">
+								For Drivers
+							</h3>
+							<ul className="space-y-4">
 								<li>
 									<a className="hover:underline hover:cursor-pointer">
 										Drive with Us
@@ -91,9 +97,11 @@ const Footer = () => {
 							</ul>
 						</div>
 
-						<div className="space-y-3">
-							<div className="uppercase dark:text-gray-50">Social media</div>
-							<div className="flex justify-start space-x-3">
+						<div className="space-y-3  self-center mx-auto md:self-start">
+							<div className="uppercase dark:text-gray-50 text-base font-bold text-gray-800">
+								Social media
+							</div>
+							<div className="flex justify-start space-x-4">
 								<a
 									rel="noopener noreferrer"
 									href="#"

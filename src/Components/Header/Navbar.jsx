@@ -47,7 +47,7 @@ const Navbar = () => {
 						<div className=" flex gap-5 items-center">
 							<button
 								onClick={toggoleTheme}
-								className="flex group lg:hidden flex-shrink-0 justify-center items-center h-9 w-9 font-medium rounded-full text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer"
+								className="flex group md:hidden flex-shrink-0 justify-center items-center h-9 w-9 font-medium rounded-full text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer"
 							>
 								{theme === 'light' ? (
 									<svg

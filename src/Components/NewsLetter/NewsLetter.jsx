@@ -35,7 +35,7 @@ const NewsLetter = () => {
 										Subscribe
 									</a>
 								</div>
-								<p className="mt-3 text-sm text-gray-400">
+								<p className="text-center md:text-left mt-3 text-sm text-gray-400">
 									No spam, unsubscribe at any time
 								</p>
 							</div>

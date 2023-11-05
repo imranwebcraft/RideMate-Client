@@ -4,10 +4,14 @@
 	opacity: 0.8;
 	transition: all 300ms;
 }
-.slick-active {
-}
+
 .slick-center {
 	scale: 1;
 	opacity: 1;
 	transition: all 300ms;
+}
+
+.slick-dots .slick-active {
+	background-color: #6495ed;
+	border-radius: 50%;
 }

@@ -1,9 +1,10 @@
 import Slider from 'react-slick';
 
-import { FcPrevious } from 'react-icons/fc';
-import { FcNext } from 'react-icons/fc';
+// import { FcPrevious } from 'react-icons/fc';
+// import { FcNext } from 'react-icons/fc';
 
 import './TestimonialCarosouel.css';
+
 const TestimonialCarosouel = () => {
 	const settings = {
 		className: 'center',
@@ -16,8 +17,9 @@ const TestimonialCarosouel = () => {
 		slidesToShow: 3,
 		speed: 500,
 		dots: true,
-		nextArrow: <FcNext></FcNext>,
-		prevArrow: <FcPrevious></FcPrevious>,
+		arrows: false,
+		// nextArrow: <FcNext></FcNext>,
+		// prevArrow: <FcPrevious></FcPrevious>,
 		responsive: [
 			{
 				breakpoint: 1024,
@@ -29,7 +31,7 @@ const TestimonialCarosouel = () => {
 				},
 			},
 			{
-				breakpoint: 600,
+				breakpoint: 800,
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
