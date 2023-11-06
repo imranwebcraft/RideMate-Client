@@ -10,6 +10,7 @@ import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import Error from '../Pages/404/Error';
 import PrivateRoute from './PrivateRoute';
+import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
 
 const router = createBrowserRouter([
 	{
@@ -24,6 +25,14 @@ const router = createBrowserRouter([
 			{
 				path: 'services',
 				element: <Services />,
+			},
+			{
+				path: '/services/:id',
+				element: (
+					<PrivateRoute>
+						<ServiceDetails />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: 'blog',
