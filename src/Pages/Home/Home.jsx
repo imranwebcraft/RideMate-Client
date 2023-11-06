@@ -6,12 +6,14 @@ import Faq from '../../Components/FAQ/FAQ';
 import FeatureOne from '../../Components/FeatureOne/FeatureOne';
 import Company from '../../Components/Company/Company';
 import TestimonialCarosouel from '../../Components/TestimonialCarosouel/TestimonialCarosouel';
+import PopularService from '../../Components/PopularService/PopularService';
 
 const Home = () => {
 	return (
 		<div>
 			<Banner></Banner>
 			<Company></Company>
+			<PopularService></PopularService>
 			<FeatureOne></FeatureOne>
 			<TestimonialStats></TestimonialStats>
 			<TestimonialCarosouel></TestimonialCarosouel>
