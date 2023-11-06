@@ -1,5 +1,6 @@
 import Container from '../Container/Container';
 import logo from '../../assets/Images/rideMate.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
@@ -15,9 +16,12 @@ const Footer = () => {
 							<div className="flex items-center justify-center w-12 h-12 rounded-full">
 								<img src={logo} alt="" />
 							</div>
-							<span className="self-center text-3xl font-bold text-gray-900 dark:text-gray-300">
+							<Link
+								to={'/'}
+								className="self-center text-2xl font-bold text-gray-900 dark:text-gray-300"
+							>
 								RideMate
-							</span>
+							</Link>
 						</a>
 					</div>
 					<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 lg:grid-cols-4">

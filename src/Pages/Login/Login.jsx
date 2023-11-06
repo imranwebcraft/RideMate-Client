@@ -10,24 +10,26 @@ const Login = () => {
 
 	// Login event handler
 	const hadnleLogin = async e => {
-		// /Toast
-		const toastId = toast.loading('Logging you in..');
-
 		e.preventDefault();
 		const form = e.target;
 		// Input field value
 
 		const email = form.email.value;
 		const password = form.password.value;
+		const checkbox = form.checkbox.checked;
 
-		console.log({ email, password });
-
+		//Validation
+		if (!checkbox) {
+			return toast.error('Please accept terms and condition');
+		}
+		// /Toast
+		const toastId = toast.loading('Logging you in..');
 		try {
 			await logIn(email, password);
 			toast.success('Login successful!', { id: toastId });
 		} catch (error) {
 			console.log(error);
-			toast.error(error.message, { id: toastId });
+			toast.error('Invalid login credentials', { id: toastId });
 		}
 	};
 

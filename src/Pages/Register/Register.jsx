@@ -7,12 +7,11 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
 	// Auth hook
-	const { createUser, googleSignIn } = useAuth();
+	const { createUser, googleSignIn, profileUpdate } = useAuth();
 
 	// Register event handler
 	const hadnleRegister = async e => {
 		// /Toast
-		const toastId = toast.loading('Registering your account');
 
 		e.preventDefault();
 		const form = e.target;
@@ -21,11 +20,21 @@ const Register = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const photo = form.photo.value;
+		const checkbox = form.checkbox.checked;
 		console.log({ name, email, password, photo });
+
+		// Validation
+
+		if (!checkbox) {
+			return toast.error('Please accept terms and condition');
+		}
+		const toastId = toast.loading('Registering your account');
 
 		try {
 			await createUser(email, password);
 			toast.success('Registration successful!', { id: toastId });
+			await profileUpdate(name, photo);
+			toast.success('Profile update successful');
 		} catch (error) {
 			console.log(error);
 			toast.error(error.message, { id: toastId });
