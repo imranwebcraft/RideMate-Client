@@ -8,7 +8,7 @@ const Blog = () => {
 			<Container>
 				{/* Header */}
 				<div className=" text-center space-y-2 pt-10">
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">
+					<h1 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
 						Read our latest news
 					</h1>
 					<p className=" dark:text-gray-400">

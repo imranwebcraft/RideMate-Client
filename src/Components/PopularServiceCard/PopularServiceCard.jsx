@@ -19,7 +19,7 @@ const PopularServiceCard = ({ service }) => {
 				alt="service Image"
 			/>
 
-			<div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg hover:scale-105 transition-all duration-200 md:w-64 dark:bg-gray-800">
+			<div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg hover:scale-[1.05] transition-all duration-200 md:w-64 dark:bg-gray-800">
 				<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-gray-200">
 					{serviceName}
 				</h3>
@@ -35,7 +35,7 @@ const PopularServiceCard = ({ service }) => {
 							alt="serviceProviderImage"
 						/>
 					</figure>
-					<p className="text-gray-800 dark:text-gray-200">
+					<p className="font-semibold text-gray-800 dark:text-gray-200">
 						{serviceProviderName}
 					</p>
 				</div>

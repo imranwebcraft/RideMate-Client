@@ -3,6 +3,7 @@ import useAxios from '../../Hook/useAxios';
 import Container from '../Container/Container';
 import PopularServiceCard from '../PopularServiceCard/PopularServiceCard';
 import { SyncLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 
 const PopularService = () => {
 	// Hook
@@ -46,11 +47,14 @@ const PopularService = () => {
 					</div>
 				)}
 
-				<div className="pt-16 flex justify-center items-center">
-					<button className="py-3 px-4  flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+				<Link
+					to={'/services'}
+					className="pt-16 flex justify-center items-center"
+				>
+					<button className="py-3 px-4 duration-200 flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
 						Show All
 					</button>
-				</div>
+				</Link>
 			</Container>
 		</div>
 	);
