@@ -21,22 +21,27 @@ const Company = () => {
 						</h2>
 					</div>
 
-					<div className="my-8 md:my-16 grid grid-cols-3 sm:flex sm:justify-center sm:items-center gap-6 sm:gap-x-12 lg:gap-x-20">
+					<div className="my-8 md:my-16 grid grid-cols-3 sm:flex sm:flex-wrap sm:justify-center sm:items-center gap-6 sm:gap-x-12 lg:gap-x-20">
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[50px] h-[50px]" src={brand1} alt="" />
 						</a>
+
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[100px] h-[50px]" src={brand2} alt="" />
 						</a>
+
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[50px] h-[50px]" src={brand3} alt="" />
 						</a>
+
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[100px] h-[50px]" src={brand8} alt="" />
 						</a>
+
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[50px] h-[50px]" src={brand4} alt="" />
 						</a>
+
 						<a className="flex-shrink-0 transition hover:-translate-y-1">
 							<img className="w-[100px] h-[50px]" src={brand5} alt="" />
 						</a>

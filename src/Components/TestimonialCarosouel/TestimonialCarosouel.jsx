@@ -1,7 +1,7 @@
 import Slider from 'react-slick';
 
-// import { FcPrevious } from 'react-icons/fc';
-// import { FcNext } from 'react-icons/fc';
+import { FcPrevious } from 'react-icons/fc';
+import { FcNext } from 'react-icons/fc';
 
 import './TestimonialCarosouel.css';
 
@@ -17,25 +17,26 @@ const TestimonialCarosouel = () => {
 		slidesToShow: 3,
 		speed: 500,
 		dots: true,
-		arrows: false,
-		// nextArrow: <FcNext></FcNext>,
-		// prevArrow: <FcPrevious></FcPrevious>,
+		nextArrow: <FcNext></FcNext>,
+		prevArrow: <FcPrevious></FcPrevious>,
 		responsive: [
 			{
-				breakpoint: 1024,
+				breakpoint: 1200,
 				settings: {
 					slidesToShow: 3,
-					slidesToScroll: 3,
+					slidesToScroll: 1,
 					infinite: true,
-					dots: true,
+					arrows: false,
 				},
 			},
+
 			{
-				breakpoint: 800,
+				breakpoint: 1000,
 				settings: {
 					slidesToShow: 2,
-					slidesToScroll: 2,
+					slidesToScroll: 1,
 					initialSlide: 2,
+					arrows: false,
 				},
 			},
 			{
@@ -43,6 +44,7 @@ const TestimonialCarosouel = () => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
+					arrows: false,
 				},
 			},
 		],
@@ -51,12 +53,21 @@ const TestimonialCarosouel = () => {
 	return (
 		<div>
 			<div className="max-w-7xl mx-auto">
+				{/* <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+						<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
+							Frequently Asked Questions
+						</h2>
+						<p className="mt-1 text-gray-600 dark:text-gray-400">
+							Find answers to your most common questions about our offerings.
+						</p>
+					</div> */}
+
 				{/* Header */}
-				<div className=" max-w-xl mx-auto text-center space-y-2 py-20">
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">
+				<div className=" max-w-2xl mx-auto text-center space-y-2 py-20">
+					<h1 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
 						Happy Commuters, Happy Testimonials
 					</h1>
-					<p className=" dark:text-gray-400">
+					<p className="mt-1 text-gray-600 dark:text-gray-400">
 						See what our customers have to say about their ride-sharing
 						experiences.
 					</p>
@@ -119,8 +130,7 @@ const TestimonialCarosouel = () => {
 									</svg>
 									My experience with carpooling has been nothing short of
 									amazing. I used to spend hours stuck in traffic alone, but now
-									I enjoy the company of fellow commuters and reduce my travel
-									expenses.
+									I enjoy the company of fellow commuters.
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"
@@ -164,8 +174,7 @@ const TestimonialCarosouel = () => {
 									Ride-sharing has been a delightful experience. It&apos;s not
 									just about getting to my destination; it&apos;s about the
 									journey itself. I&apos;ve had the pleasure of meeting diverse
-									people, and we often take turns sharing interesting stories
-									and experiences.
+									people.
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"
@@ -208,8 +217,7 @@ const TestimonialCarosouel = () => {
 									</svg>
 									Being a student means budgeting every penny. Carpooling has
 									been a lifesaver in that regard. It&apos;s not only
-									economical, but I&apos;ve also made new friends who share my
-									enthusiasm for learning.
+									economical, but I&apos;ve also made new friends.
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"
@@ -250,8 +258,7 @@ const TestimonialCarosouel = () => {
 									</svg>
 									My daily commute used to be a hassle until I discovered this
 									carpooling platform. Now, it&apos;s a smooth and
-									cost-effective journey. I&apos;ve met fantastic people who
-									have become friends, and we navigate traffic together.
+									cost-effective journey.
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"
@@ -291,8 +298,7 @@ const TestimonialCarosouel = () => {
 									</svg>
 									Carpooling is a brilliant way to share rides and costs. My
 									journey to work has become more enjoyable and economical,
-									thanks to this service. It&apos;s not just about saving money;
-									it&apos;s about contributing to a greener planet.
+									thanks to this service.
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"

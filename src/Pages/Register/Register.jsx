@@ -2,8 +2,49 @@ import Lottie from 'lottie-react';
 import Container from '../../Components/Container/Container';
 import regiAnimation from '../../assets/Lottie-Animation/registration.json';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hook/useAuth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+	// Auth hook
+	const { createUser, googleSignIn } = useAuth();
+
+	// Register event handler
+	const hadnleRegister = async e => {
+		// /Toast
+		const toastId = toast.loading('Registering your account');
+
+		e.preventDefault();
+		const form = e.target;
+		// Input field value
+		const name = form.name.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		const photo = form.photo.value;
+		console.log({ name, email, password, photo });
+
+		try {
+			await createUser(email, password);
+			toast.success('Registration successful!', { id: toastId });
+		} catch (error) {
+			console.log(error);
+			toast.error(error.message, { id: toastId });
+		}
+	};
+
+	const handleGoogleSignIn = async () => {
+		// /Toast
+		const toastId = toast.loading('Select an account to procced');
+
+		try {
+			await googleSignIn();
+			toast.success('Google sign in successful!', { id: toastId });
+		} catch (error) {
+			console.log(error);
+			toast.error('Something went wrong😥', { id: toastId });
+		}
+	};
+
 	return (
 		<Container>
 			<body className=" w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
@@ -28,6 +69,7 @@ const Register = () => {
 
 							<div className="mt-5">
 								<button
+									onClick={handleGoogleSignIn}
 									type="button"
 									className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-sky-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
 								>
@@ -62,7 +104,7 @@ const Register = () => {
 									Or
 								</div>
 
-								<form>
+								<form onSubmit={hadnleRegister}>
 									<div className="grid gap-y-4">
 										<div>
 											<label className="block text-sm mb-2 dark:text-white">
@@ -113,8 +155,8 @@ const Register = () => {
 											</label>
 											<div className="relative">
 												<input
-													type="password"
-													name="password"
+													type="text"
+													name="photo"
 													className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
 													required
 													placeholder="Enter a photo URL"
@@ -126,6 +168,7 @@ const Register = () => {
 											<div className="flex">
 												<input
 													type="checkbox"
+													name="checkbox"
 													className="shrink-0 mt-0.5 border-gray-200 rounded text-sky-600 focus:ring-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-sky-500 dark:checked:border-sky-500 dark:focus:ring-offset-gray-800"
 													id="hs-checkbox-group-1"
 												/>

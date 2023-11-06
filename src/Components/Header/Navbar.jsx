@@ -2,7 +2,12 @@ import { Link, NavLink } from 'react-router-dom';
 import logoImg from '../../assets/Images/rideMate.png';
 import Container from '../Container/Container';
 import { useEffect, useState } from 'react';
+import useAuth from '../../Hook/useAuth';
+import toast from 'react-hot-toast';
 const Navbar = () => {
+	// Auth
+	const { user, logOut } = useAuth();
+
 	// Dark mode control
 	const [theme, setTheme] = useState('light');
 	const html = document.documentElement;
@@ -26,6 +31,17 @@ const Navbar = () => {
 		html.classList.add(currentTheme);
 		setTheme(currentTheme);
 	}, [html.classList]);
+
+	// LogOut event handler
+	const handleLogOut = async () => {
+		try {
+			await logOut();
+			toast.success('Log out successfull');
+		} catch (error) {
+			console.log(error);
+			toast.error(error.message);
+		}
+	};
 
 	return (
 		<header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700 sticky top-0">
@@ -203,24 +219,67 @@ const Navbar = () => {
 								</div>
 							</div>
 
-							<Link to={'/login'}>
-								<button
-									type="button"
-									className="ml-1 pb-2 md:mb-0 py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md  font-medium text-gray-100 hover:text-gray-50 bg-sky-500 hover:bg-sky-600  focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-2 transition-all duration-300 text-sm dark:focus:ring-offset-gray-800 dark:hover:text-gray-100"
-								>
-									<svg
-										className="w-4 h-4"
-										xmlns="http://www.w3.org/2000/svg"
-										width="16"
-										height="16"
-										fill="currentColor"
-										viewBox="0 0 16 16"
+							{/* Conditonal navbar */}
+
+							{user ? (
+								<div className=" flex items-center gap-2">
+									{user?.photoURL ? (
+										<div className="relative inline-block">
+											<img
+												className="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800"
+												src={user?.photoURL}
+												alt="Image Description"
+											/>
+											<span className="absolute bottom-0 right-0 block h-1.5 w-1.5 rounded-full ring-2 ring-white bg-green-400"></span>
+										</div>
+									) : (
+										<div className="relative inline-block">
+											<img
+												className="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800"
+												src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+												alt="Image Description"
+											/>
+											<span className="absolute bottom-0 right-0 block h-1.5 w-1.5 rounded-full ring-2 ring-white bg-green-400"></span>
+										</div>
+									)}
+									<button
+										onClick={handleLogOut}
+										type="button"
+										className="ml-1 pb-2 md:mb-0 py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md  font-medium text-gray-100 hover:text-gray-50 bg-sky-500 hover:bg-sky-600  focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-2 transition-all duration-300 text-sm dark:focus:ring-offset-gray-800 dark:hover:text-gray-100"
 									>
-										<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-									</svg>
-									Login
-								</button>
-							</Link>
+										<svg
+											className="w-4 h-4"
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											viewBox="0 0 16 16"
+										>
+											<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+										</svg>
+										Log Out
+									</button>
+								</div>
+							) : (
+								<Link to={'/login'}>
+									<button
+										type="button"
+										className="ml-1 pb-2 md:mb-0 py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md  font-medium text-gray-100 hover:text-gray-50 bg-sky-500 hover:bg-sky-600  focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-2 transition-all duration-300 text-sm dark:focus:ring-offset-gray-800 dark:hover:text-gray-100"
+									>
+										<svg
+											className="w-4 h-4"
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											viewBox="0 0 16 16"
+										>
+											<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+										</svg>
+										Login
+									</button>
+								</Link>
+							)}
 
 							{/* Dark mode toggole */}
 
