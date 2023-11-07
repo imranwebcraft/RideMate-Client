@@ -6,11 +6,10 @@ import bloob from '../../assets/SVG/Bloob.svg';
 const Banner = () => {
 	return (
 		<div className="relative">
-			<div className="">
+			<div>
 				<img
 					className=" w-full h-full lg:w-[700px] lg:h-[700px] absolute lg:right-0"
 					src={bloob}
-					alt=""
 				/>
 			</div>
 

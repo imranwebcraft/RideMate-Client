@@ -63,7 +63,6 @@ const AuthProvider = ({ children }) => {
 		const unsubscribe = onAuthStateChanged(auth, currentUser => {
 			const userEmail = currentUser?.email || user?.email;
 			const email = { email: userEmail };
-			console.log(email);
 
 			setLoading(true);
 			setUser(currentUser);
@@ -72,9 +71,7 @@ const AuthProvider = ({ children }) => {
 
 			// Access Token
 			if (currentUser) {
-				axios.post('/auth/access-token', email).then(res => {
-					console.log(res.data);
-				});
+				axios.post('/auth/access-token', email);
 			} else {
 				axios.post('/auth/logout', email).then(res => console.log(res.data));
 			}

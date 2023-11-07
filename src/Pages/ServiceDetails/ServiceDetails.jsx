@@ -1,15 +1,21 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import useAxios from '../../Hook/useAxios';
 import Container from '../../Components/Container/Container';
 import auth from '../../Config/firebase.config';
 import mapImg from '../../assets/Images/map.png';
+import bloob from '../../assets/SVG/blog.svg';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const ServiceDetails = () => {
 	const axios = useAxios();
 
 	// Get id from dynamic route
 	const { id } = useParams();
+
+	const [date, setDate] = useState();
+	const [instruction, setInstruction] = useState();
 
 	// Tanstack
 	const { data: service } = useQuery({
@@ -20,8 +26,20 @@ const ServiceDetails = () => {
 		},
 	});
 
+	const { mutate } = useMutation({
+		mutationKey: ['service'],
+		mutationFn: async bookingData => {
+			const res = await axios.post('/user/create-booking', bookingData);
+			console.log(res?.data);
+			if (res?.data.insertedId) {
+				toast.success('Booking confirmed');
+			}
+			return res;
+		},
+	});
+
 	const singleService = service?.data;
-	console.log(singleService);
+
 	const {
 		// _id,
 		serviceName,
@@ -34,10 +52,16 @@ const ServiceDetails = () => {
 	} = singleService || {};
 
 	return (
-		<div className="py-10">
+		<div className="">
+			<div>
+				<img
+					className=" w-full h-full lg:w-[700px] lg:h-[700px] absolute lg:right-0"
+					src={bloob}
+				/>
+			</div>
 			<Container>
 				{/* Heading */}
-				<div className="max-w-2xl mx-auto text-center lg:mb-14">
+				<div className="max-w-2xl mx-auto text-center pt-10 lg:mb-14">
 					<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
 						Service Portfolio
 					</h2>
@@ -238,6 +262,7 @@ const ServiceDetails = () => {
 																		Date:
 																	</label>
 																	<input
+																		onBlur={e => setDate(e.target.value)}
 																		type="date"
 																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 																	/>
@@ -259,6 +284,7 @@ const ServiceDetails = () => {
 																	<label>Special Instruction:</label>
 
 																	<textarea
+																		onBlur={e => setInstruction(e.target.value)}
 																		className="w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 																		rows="4"
 																		placeholder="Enter any additional order notes..."
@@ -268,12 +294,24 @@ const ServiceDetails = () => {
 														</div>
 													</div>
 													<div className="flex justify-end items-center gap-x-2 p-4 sm:px-7 border-t dark:border-gray-700">
-														<a
-															className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-															href="#"
+														<button
+															onClick={() =>
+																mutate({
+																	serviceName,
+																	serviceImage,
+																	serviceProviderEmail,
+																	price,
+																	date,
+																	instruction,
+																	userEmail: auth?.currentUser?.email,
+																	status: 'pending',
+																})
+															}
+															type="button"
+															className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
 														>
-															Confirm Booking
-														</a>
+															Purchase This Service
+														</button>
 													</div>
 												</div>
 											</div>

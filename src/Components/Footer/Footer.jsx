@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
-		<footer className="relative dark:bg-gray-800 dark:text-gray-100">
+		<footer className="relative  dark:bg-gray-800 dark:text-gray-100">
 			<Container>
 				<div className="flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 					{/* Logo */}
@@ -13,8 +13,8 @@ const Footer = () => {
 							rel="noopener noreferrer"
 							className="flex justify-center space-x-3 lg:justify-start"
 						>
-							<div className="flex items-center justify-center w-12 h-12 rounded-full">
-								<img src={logo} alt="" />
+							<div className="flex items-center justify-center rounded-full">
+								<img src={logo} alt="logo" className="w-[80px] h-[50px]" />
 							</div>
 							<Link
 								to={'/'}
