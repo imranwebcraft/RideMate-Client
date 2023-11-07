@@ -29,7 +29,7 @@ const AddService = () => {
 	});
 
 	return (
-		<div className="py-10">
+		<div className="py-20">
 			<Container>
 				<div className="grid gap-3 grid-cols-1 md:grid-cols-2">
 					{/* Add service form */}
@@ -75,7 +75,7 @@ const AddService = () => {
 								/>
 							</div>
 							{/* Service Provider Name */}
-							<div>
+							{/* <div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Name
 								</label>
@@ -85,9 +85,9 @@ const AddService = () => {
 									defaultValue={auth?.currentUser?.displayName}
 									disabled
 								/>
-							</div>
+							</div> */}
 							{/* Service Provider Email */}
-							<div>
+							{/* <div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Email
 								</label>
@@ -97,7 +97,7 @@ const AddService = () => {
 									defaultValue={auth?.currentUser?.email}
 									disabled
 								/>
-							</div>
+							</div> */}
 							{/* Price */}
 							<div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
@@ -147,6 +147,7 @@ const AddService = () => {
 											serviceDescription,
 											serviceProviderEmail: auth?.currentUser?.email,
 											serviceProviderName: auth?.currentUser?.displayName,
+											serviceProviderImage: auth?.currentUser?.photoURL,
 										})
 									}
 									type="button"

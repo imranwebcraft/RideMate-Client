@@ -12,6 +12,8 @@ import Error from '../Pages/404/Error';
 import PrivateRoute from './PrivateRoute';
 import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
 import UpdateService from '../Pages/UpdateService/UpdateService';
+import MyBooking from '../Pages/MyBooking/MyBooking';
+import MyPendingWork from '../Pages/MyPendingWork/MyPendingWork';
 
 const router = createBrowserRouter([
 	{
@@ -71,6 +73,17 @@ const router = createBrowserRouter([
 						<MySchedules />
 					</PrivateRoute>
 				),
+				children: [
+					{
+						index: true,
+						element: <MyBooking />,
+					},
+
+					{
+						path: 'my-pending-work',
+						element: <MyPendingWork />,
+					},
+				],
 			},
 
 			// Auth
