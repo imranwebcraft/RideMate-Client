@@ -6,7 +6,9 @@ const MainLayout = () => {
 	return (
 		<div className="font-sans scroll-smooth tracking-wide">
 			<Navbar />
+
 			<Outlet />
+
 			<Footer />
 		</div>
 	);
