@@ -4,7 +4,7 @@ import Footer from '../Components/Footer/Footer';
 
 const MainLayout = () => {
 	return (
-		<div className="font-sans scroll-smooth">
+		<div className="font-sans scroll-smooth tracking-wide">
 			<Navbar />
 			<Outlet />
 			<Footer />

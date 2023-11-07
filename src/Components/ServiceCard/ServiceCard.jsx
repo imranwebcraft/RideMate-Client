@@ -25,8 +25,10 @@ const ServiceCard = ({ service }) => {
 					<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-gray-200">
 						{serviceName}
 					</h3>
-					<p className="text-center  text-gray-800 dark:text-gray-400">
-						{serviceDescription}
+					<p className="text-center text-gray-800 dark:text-gray-400">
+						{serviceDescription.length > 100
+							? serviceDescription.slice(0, 80) + '...'
+							: serviceDescription}
 					</p>
 
 					<div className="p-4 flex items-center justify-center gap-2">
@@ -44,7 +46,7 @@ const ServiceCard = ({ service }) => {
 
 					<div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
 						<span className="font-bold text-gray-800 dark:text-gray-200">
-							{price}
+							{price} TK
 						</span>
 						<Link
 							to={`/services/${_id}`}

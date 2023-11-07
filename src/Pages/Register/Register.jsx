@@ -213,11 +213,8 @@ const Register = () => {
 				<div className=" w-[428px] h-[428px]">
 					<Lottie
 						animationData={regiAnimation}
-						aria-aria-labelledby="use lottie animation"
 						loop={true}
 						autoplay={true}
-						width={20}
-						height={20}
 					></Lottie>
 				</div>
 			</body>

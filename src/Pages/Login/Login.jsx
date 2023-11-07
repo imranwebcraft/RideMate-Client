@@ -175,11 +175,8 @@ const Login = () => {
 				</main>
 				<Lottie
 					animationData={loginAnimation}
-					aria-aria-labelledby="use lottie animation"
 					loop={true}
 					autoplay={true}
-					width={20}
-					height={20}
 				></Lottie>
 			</body>
 		</Container>

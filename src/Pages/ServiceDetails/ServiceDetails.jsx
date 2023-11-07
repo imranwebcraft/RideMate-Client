@@ -227,9 +227,8 @@ const ServiceDetails = () => {
 																	</label>
 																	<input
 																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
 																		defaultValue={serviceName}
-																		readOnly
 																		disabled
 																	/>
 																</div>
@@ -239,9 +238,8 @@ const ServiceDetails = () => {
 																	</label>
 																	<input
 																		type="email"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
 																		defaultValue={serviceProviderEmail}
-																		readOnly
 																		disabled
 																	/>
 																</div>
@@ -251,9 +249,8 @@ const ServiceDetails = () => {
 																	</label>
 																	<input
 																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
 																		defaultValue={auth.currentUser.email}
-																		readOnly
 																		disabled
 																	/>
 																</div>
@@ -273,9 +270,8 @@ const ServiceDetails = () => {
 																	</label>
 																	<input
 																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
 																		defaultValue={price}
-																		readOnly
 																		disabled
 																	/>
 																</div>
