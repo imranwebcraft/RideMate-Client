@@ -1,15 +1,31 @@
 import PropTypes from 'prop-types';
-const BookingRow = ({ booking }) => {
+import { useState } from 'react';
+const WorkRow = ({ work, mutate }) => {
+	const [selectedStatus, setSelectedStatus] = useState('Pending');
+
 	const {
+		_id,
 		serviceName,
 		serviceImage,
-		serviceProviderEmail,
 		price,
 		date,
 		instruction,
+		userEmail,
 		status,
-	} = booking || {};
+	} = work || {};
 
+	const handleStatusChange = event => {
+		const newStatus = event.target.value;
+
+		const updatedData = {
+			id: _id,
+			status: newStatus,
+		};
+
+		mutate(updatedData);
+
+		setSelectedStatus(newStatus);
+	};
 	return (
 		<tr>
 			<td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -29,9 +45,7 @@ const BookingRow = ({ booking }) => {
 			</td>
 			<td className="px-5 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
 				<div className="inline-flex items-start px-3 py-1 rounded-full gap-x-2 bg-gray-100 dark:bg-gray-800">
-					<h2 className="text-sm font-normal text-sky-500">
-						{serviceProviderEmail}
-					</h2>
+					<h2 className="text-sm font-normal text-sky-500">{userEmail}</h2>
 				</div>
 			</td>
 			<td className="px-5 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -54,15 +68,26 @@ const BookingRow = ({ booking }) => {
 				</div>
 			</td>
 			<td className="px-3 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-				<div className="inline-flex items-start px-3 py-1 rounded-full gap-x-2 bg-gray-200 dark:bg-gray-800 ">
-					<h2 className="text-sm font-normal dark:text-gray-200">{status}</h2>
+				<div>
+					<select
+						name="type"
+						onChange={handleStatusChange}
+						className="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-300 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
+						value={status}
+					>
+						<option value="Pending">Pending</option>
+						<option value="In Progress">In Progress</option>
+						<option value="Confirm">Confirm</option>
+					</select>
 				</div>
 			</td>
 		</tr>
 	);
 };
 
-BookingRow.propTypes = {
-	booking: PropTypes.object,
+WorkRow.propTypes = {
+	work: PropTypes.object,
+	mutate: PropTypes.func,
 };
-export default BookingRow;
+
+export default WorkRow;

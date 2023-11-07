@@ -2,6 +2,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const MySchedules = () => {
 	const location = useLocation();
+
 	return (
 		<div className="py-10">
 			{/* Heading */}
@@ -17,21 +18,20 @@ const MySchedules = () => {
 			<div className=" max-w-[1220px] mx-auto">
 				<div className="flex justify-center items-center gap-10">
 					<NavLink
-						to="/my-schedules"
-						className={({ isActive }) =>
-							isActive
-								? 'text-sky-700 font-semibold bg-slate-800 px-2 rounded-md'
-								: 'font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover-text-gray-500 transition-all duration-200 ease-in-out rounded-md'
+						className={
+							location.pathname === '/my-schedules'
+								? 'text-sky-700 font-semibold bg-gray-100 dark:bg-slate-800 px-2 py-2 rounded-md'
+								: 'font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover-text-gray-500 transition-all duration-200 ease-in-out px-2 py-2'
 						}
 					>
 						My Booking
 					</NavLink>
 					<NavLink
 						to="/my-schedules/my-pending-work"
-						className={({ isActive }) =>
-							isActive
-								? 'text-sky-700 font-semibold bg-slate-800 px-2 rounded-md'
-								: 'font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover-text-gray-500 transition-all duration-200 ease-in-out rounded-md'
+						className={
+							location.pathname.includes('/my-pending-work')
+								? 'text-sky-700 font-semibold bg-gray-100 dark:bg-slate-800 px-2 py-2 rounded-md'
+								: 'font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover-text-gray-500 transition-all duration-200 ease-in-out px-2 py-2'
 						}
 					>
 						My Pending Work

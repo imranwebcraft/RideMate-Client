@@ -6,7 +6,7 @@ const MainLayout = () => {
 	return (
 		<div className="font-sans scroll-smooth tracking-wide">
 			<Navbar />
-			<div className="">
+			<div className="min-h-[95vh]">
 				<Outlet />
 			</div>
 			<Footer />
