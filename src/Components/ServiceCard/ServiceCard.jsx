@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
 				/>
 
 				<div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg hover:scale-[1.05] transition-all duration-200 md:w-64 dark:bg-gray-800">
-					<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-gray-200">
+					<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 dark:text-gray-200">
 						{serviceName}
 					</h3>
 					<p className="text-center text-gray-800 dark:text-gray-400">

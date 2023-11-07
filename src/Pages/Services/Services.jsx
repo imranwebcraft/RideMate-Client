@@ -7,19 +7,29 @@ import { SyncLoader } from 'react-spinners';
 import './service.css';
 
 const Services = () => {
+	// const queryClient = useQueryClient();
+	const [searchValue, setSearchValue] = useState('');
 	// Hook
 	const axios = useAxios();
 	// Sate to manage show all button
 	const [showAll, setShowAll] = useState(6);
 
+	const handleSearch2 = e => {
+		e.preventDefault();
+		const form = e.target;
+		const serachText = form.serviceName.value;
+		setSearchValue(serachText);
+	};
+
+	// Search datd dynamically when user search by service name
 	const {
 		data: services,
 		isLoading,
 		error,
 	} = useQuery({
-		queryKey: ['services', showAll],
+		queryKey: ['services', showAll, searchValue],
 		queryFn: async () => {
-			const res = axios.get('/services');
+			const res = axios.get(`/services?serviceName=${searchValue}`);
 			return res;
 		},
 	});
@@ -38,17 +48,9 @@ const Services = () => {
 				</div>
 
 				{/* Seacrch Field */}
-				<form className="mb-10 lg:mb-20">
+				<form onSubmit={handleSearch2} className="mb-10 lg:mb-20">
 					<div className="flex">
-						<label
-							htmlFor="search-dropdown"
-							className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-						>
-							Your Email
-						</label>
 						<button
-							id="dropdown-button"
-							data-dropdown-toggle="dropdown"
 							className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200   dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
 							type="button"
 						>
@@ -82,7 +84,6 @@ const Services = () => {
 										d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
 									/>
 								</svg>
-								<span className="sr-only">Search</span>
 							</button>
 						</div>
 					</div>
