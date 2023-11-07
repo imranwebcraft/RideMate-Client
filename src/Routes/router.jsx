@@ -11,6 +11,7 @@ import Register from '../Pages/Register/Register';
 import Error from '../Pages/404/Error';
 import PrivateRoute from './PrivateRoute';
 import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
+import UpdateService from '../Pages/UpdateService/UpdateService';
 
 const router = createBrowserRouter([
 	{
@@ -46,6 +47,15 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 			},
+			{
+				path: 'my-services/update-services/:id',
+				element: (
+					<PrivateRoute>
+						<UpdateService />
+					</PrivateRoute>
+				),
+			},
+
 			{
 				path: 'add-service',
 				element: (

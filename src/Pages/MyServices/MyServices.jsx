@@ -4,6 +4,7 @@ import useAxios from '../../Hook/useAxios';
 import auth from '../../Config/firebase.config';
 import ServiceRow from './ServiceRow';
 import toast from 'react-hot-toast';
+import { SyncLoader } from 'react-spinners';
 
 const MyServices = () => {
 	const axios = useAxios();
@@ -11,7 +12,7 @@ const MyServices = () => {
 	// Context theke asbe
 	const queryClient = useQueryClient();
 
-	const { data: services } = useQuery({
+	const { data: services, isLoading } = useQuery({
 		queryKey: ['userService'],
 		queryFn: async () => {
 			const res = await axios.get(
@@ -47,6 +48,11 @@ const MyServices = () => {
 						Update, Delete, and Review Your Services
 					</p>
 				</div>
+				{isLoading && (
+					<div className=" bg-white dark:bg-slate-900 h-full w-full flex justify-center items-center">
+						<SyncLoader color="#0284C7" />
+					</div>
+				)}
 				{/* Show user addeded services */}
 				<section className="container px-4 mx-auto">
 					<div className="flex flex-col mt-6">
