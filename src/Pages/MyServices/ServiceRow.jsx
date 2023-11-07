@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const ServiceRow = ({ service }) => {
+const ServiceRow = ({ service, mutate }) => {
 	const {
-		// _id,
+		_id,
 		serviceName,
 		serviceImage,
 		price,
@@ -40,7 +40,10 @@ const ServiceRow = ({ service }) => {
 
 			<td className="px-4 py-4 text-sm whitespace-nowrap">
 				<div className="flex items-center gap-x-6">
-					<button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
+					<button
+						onClick={() => mutate(_id)}
+						className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -79,6 +82,7 @@ const ServiceRow = ({ service }) => {
 };
 ServiceRow.propTypes = {
 	service: PropTypes.object,
+	mutate: PropTypes.func,
 };
 
 export default ServiceRow;

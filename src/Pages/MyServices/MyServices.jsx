@@ -1,11 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import Container from '../../Components/Container/Container';
 import useAxios from '../../Hook/useAxios';
 import auth from '../../Config/firebase.config';
 import ServiceRow from './ServiceRow';
+import toast from 'react-hot-toast';
 
 const MyServices = () => {
 	const axios = useAxios();
+
+	// Context theke asbe
+	const queryClient = useQueryClient();
 
 	const { data: services } = useQuery({
 		queryKey: ['userService'],
@@ -14,6 +18,18 @@ const MyServices = () => {
 				`/services?serviceProviderEmail=${auth?.currentUser?.email}`
 			);
 			return res;
+		},
+	});
+
+	const { mutate } = useMutation({
+		mutationKey: ['serviceRow'],
+		mutationFn: async id => {
+			const res = await axios.delete(`/services/${id}`);
+			return res;
+		},
+		onSuccess: () => {
+			toast.success('Service delete successfull');
+			queryClient.invalidateQueries({ queryKey: ['userService'] });
 		},
 	});
 
@@ -85,6 +101,7 @@ const MyServices = () => {
 												<ServiceRow
 													key={service._id}
 													service={service}
+													mutate={mutate}
 												></ServiceRow>
 											))}
 										</tbody>
