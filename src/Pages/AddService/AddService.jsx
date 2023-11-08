@@ -91,7 +91,7 @@ const AddService = () => {
 								/>
 							</div>
 							{/* Service Provider Name */}
-							{/* <div>
+							<div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Name
 								</label>
@@ -101,9 +101,9 @@ const AddService = () => {
 									defaultValue={auth?.currentUser?.displayName}
 									disabled
 								/>
-							</div> */}
+							</div>
 							{/* Service Provider Email */}
-							{/* <div>
+							<div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Email
 								</label>
@@ -113,7 +113,7 @@ const AddService = () => {
 									defaultValue={auth?.currentUser?.email}
 									disabled
 								/>
-							</div> */}
+							</div>
 							{/* Price */}
 							<div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
@@ -167,7 +167,7 @@ const AddService = () => {
 										})
 									}
 									type="button"
-									className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-sky-600 text-white hover:bg-sky-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 transition-all duration-200 tracking-wide"
+									className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-sky-600 text-white hover:bg-sky-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 transition-all duration-300 tracking-wide"
 								>
 									Add Service
 								</button>

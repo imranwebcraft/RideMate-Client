@@ -14,6 +14,7 @@ import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
 import UpdateService from '../Pages/UpdateService/UpdateService';
 import MyBooking from '../Pages/MyBooking/MyBooking';
 import MyPendingWork from '../Pages/MyPendingWork/MyPendingWork';
+import BookService from '../Pages/BookService/BookService';
 
 const router = createBrowserRouter([
 	{
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 						<MyServices />
 					</PrivateRoute>
 				),
+			},
+			{
+				path: 'confirm-booking/:id',
+				element: <BookService />,
 			},
 			{
 				path: 'my-services/update-services/:id',

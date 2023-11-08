@@ -1,22 +1,18 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import useAxios from '../../Hook/useAxios';
 import Container from '../../Components/Container/Container';
-import auth from '../../Config/firebase.config';
 import mapImg from '../../assets/Images/map.png';
 import bloob from '../../assets/SVG/blog.svg';
-import { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
+import { useEffect } from 'react';
+
 import { Helmet } from 'react-helmet-async';
+import { useQuery } from '@tanstack/react-query';
 
 const ServiceDetails = () => {
 	const axios = useAxios();
 
 	// Get id from dynamic route
 	const { id } = useParams();
-
-	const [date, setDate] = useState();
-	const [instruction, setInstruction] = useState();
 
 	// Tanstack
 	const { data: service } = useQuery({
@@ -27,31 +23,21 @@ const ServiceDetails = () => {
 		},
 	});
 
-	const { mutate } = useMutation({
-		mutationKey: ['service'],
-		mutationFn: async bookingData => {
-			const res = await axios.post('/user/create-booking', bookingData);
-			console.log(res?.data);
-			if (res?.data.insertedId) {
-				toast.success('Booking confirmed');
-			}
-			return res;
-		},
-	});
-
 	const singleService = service?.data;
 
 	const {
-		// _id,
+		_id,
 		serviceName,
 		serviceImage,
 		serviceDescription,
 		serviceProviderName,
 		serviceProviderImage,
-		serviceProviderEmail,
+		// serviceProviderEmail,
 		price,
 		serviceArea,
 	} = singleService || {};
+
+	console.log(_id);
 
 	const location = useLocation();
 	useEffect(() => {
@@ -202,124 +188,17 @@ const ServiceDetails = () => {
 									<p className="font-bold w-full text-center text-gray-800 dark:text-gray-200">
 										Cost: {price} TK
 									</p>
-									{/* Modal */}
 
 									<div>
 										<div className="text-center">
-											<button
+											<Link
+												to={`/confirm-booking/${_id}`}
 												type="button"
 												className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-1 transition-all text-sm dark:focus:ring-offset-gray-800"
 												data-hs-overlay="#hs-modal-upgrade-to-pro"
 											>
 												Book Now
-											</button>
-										</div>
-
-										<div
-											id="hs-modal-upgrade-to-pro"
-											className="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto shadow-xl"
-										>
-											<div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-												<div className="bg-white border border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-400 dark:shadow-gray-800">
-													<div className="p-4 sm:p-7">
-														<div className="text-center">
-															<img
-																src={serviceImage}
-																className="w-full h-60 sm:h-60 dark:bg-gray-500"
-															/>
-														</div>
-														<div className="mt-8 sm:mt-10 divide-y divide-gray-200 dark:divide-gray-700">
-															<form className=" space-y-4">
-																<div className=" flex items-center justify-center">
-																	<label className=" flex-[1] block font-medium dark:text-white">
-																		Service Name:
-																	</label>
-																	<input
-																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
-																		defaultValue={serviceName}
-																		disabled
-																	/>
-																</div>
-																<div className=" flex items-center justify-center">
-																	<label className=" flex-[1] block font-medium dark:text-white">
-																		Provider Email:
-																	</label>
-																	<input
-																		type="email"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
-																		defaultValue={serviceProviderEmail}
-																		disabled
-																	/>
-																</div>
-																<div className=" flex items-center justify-center">
-																	<label className=" flex-[1] block font-medium dark:text-white">
-																		User Email:
-																	</label>
-																	<input
-																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
-																		defaultValue={auth.currentUser.email}
-																		disabled
-																	/>
-																</div>
-																<div className=" flex items-center justify-center">
-																	<label className=" flex-[1] block font-medium dark:text-white">
-																		Date:
-																	</label>
-																	<input
-																		onBlur={e => setDate(e.target.value)}
-																		type="date"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-																	/>
-																</div>
-																<div className=" flex items-center justify-center">
-																	<label className=" flex-[1] block font-medium dark:text-white">
-																		Price:
-																	</label>
-																	<input
-																		type="text"
-																		className=" flex-[2] py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 disabled:opacity-50 disabled:pointer-events-none"
-																		defaultValue={price}
-																		disabled
-																	/>
-																</div>
-
-																<div>
-																	<label>Special Instruction:</label>
-
-																	<textarea
-																		onBlur={e => setInstruction(e.target.value)}
-																		className="w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-																		rows="4"
-																		placeholder="Enter any additional order notes..."
-																	></textarea>
-																</div>
-															</form>
-														</div>
-													</div>
-													<div className="flex justify-end items-center gap-x-2 p-4 sm:px-7 border-t dark:border-gray-700">
-														<button
-															onClick={() =>
-																mutate({
-																	serviceName,
-																	serviceImage,
-																	serviceProviderEmail,
-																	price,
-																	date,
-																	instruction,
-																	userEmail: auth?.currentUser?.email,
-																	status: 'pending',
-																})
-															}
-															type="button"
-															className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-														>
-															Purchase This Service
-														</button>
-													</div>
-												</div>
-											</div>
+											</Link>
 										</div>
 									</div>
 								</div>

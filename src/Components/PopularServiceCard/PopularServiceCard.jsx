@@ -43,7 +43,7 @@ const PopularServiceCard = ({ service }) => {
 
 				<div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
 					<span className="font-bold text-gray-800 dark:text-gray-200">
-						{price}
+						{price} TK
 					</span>
 					<Link
 						to={`/services/${_id}`}
