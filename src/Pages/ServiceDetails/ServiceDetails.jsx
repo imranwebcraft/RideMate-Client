@@ -7,6 +7,7 @@ import mapImg from '../../assets/Images/map.png';
 import bloob from '../../assets/SVG/blog.svg';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceDetails = () => {
 	const axios = useAxios();
@@ -49,10 +50,16 @@ const ServiceDetails = () => {
 		serviceProviderImage,
 		serviceProviderEmail,
 		price,
+		serviceArea,
 	} = singleService || {};
 
+	console.log(singleService);
+
 	return (
-		<div className="">
+		<div>
+			<Helmet>
+				<title>{serviceName}</title>
+			</Helmet>
 			<div>
 				<img
 					className=" w-full h-full lg:w-[700px] lg:h-[700px] absolute lg:right-0"
@@ -343,8 +350,13 @@ const ServiceDetails = () => {
 									</p>
 								</div>
 								<h2 className="text-xl font-bold md:text-2xl md:leading-tight text-gray-900 dark:text-white">
-									Service Area Map:
+									Service Area
 								</h2>
+
+								<h1 className=" text-xl font-semibold text-gray-800 dark:text-gray-300">
+									{serviceArea}
+								</h1>
+
 								<div className="  bg-sky-100">
 									<img
 										src={mapImg}
@@ -434,7 +446,7 @@ const ServiceDetails = () => {
 											<span className="dark:text-gray-400 ">3 out of 5</span>
 										</div>
 										<p className="text dark:text-gray-400">
-											861 global ratings
+											820 global ratings
 										</p>
 										<div className="flex flex-col mt-4">
 											<div className="flex items-center space-x-1">

@@ -4,6 +4,7 @@ import loginAnimation from '../../assets/Lottie-Animation/4.json';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 const Login = () => {
 	// Auth hook
 	const { logIn, googleSignIn } = useAuth();
@@ -17,7 +18,6 @@ const Login = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const checkbox = form.checkbox.checked;
-
 		//Validation
 		if (!checkbox) {
 			return toast.error('Please accept terms and condition');
@@ -26,10 +26,11 @@ const Login = () => {
 		const toastId = toast.loading('Logging you in..');
 		try {
 			await logIn(email, password);
+			form.reset();
 			toast.success('Login successful!', { id: toastId });
 		} catch (error) {
 			console.log(error);
-			toast.error('Invalid login credentials', { id: toastId });
+			toast.error('Invalid login credentials🙁', { id: toastId });
 		}
 	};
 
@@ -47,6 +48,9 @@ const Login = () => {
 	};
 	return (
 		<Container>
+			<Helmet>
+				<title>Ride Mate | Login</title>
+			</Helmet>
 			<body className=" w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
 				<main className=" w-full max-w-md mx-auto p-6">
 					<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">

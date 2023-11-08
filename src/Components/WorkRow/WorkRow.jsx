@@ -57,7 +57,7 @@ const WorkRow = ({ work, mutate }) => {
 
 			<td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
 				{instruction?.length === 0 && (
-					<p className=" text-red-300">Not Given</p>
+					<p className=" text-red-500">Not Given</p>
 				)}
 				{instruction.length > 50
 					? instruction.slice(0, 45) + '...'

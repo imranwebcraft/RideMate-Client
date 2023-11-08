@@ -5,6 +5,7 @@ import auth from '../../Config/firebase.config';
 import ServiceRow from './ServiceRow';
 import toast from 'react-hot-toast';
 import { SyncLoader } from 'react-spinners';
+import { Helmet } from 'react-helmet-async';
 
 const MyServices = () => {
 	const axios = useAxios();
@@ -38,6 +39,9 @@ const MyServices = () => {
 
 	return (
 		<div className=" py-10">
+			<Helmet>
+				<title>Service Management Center</title>
+			</Helmet>
 			<Container>
 				{/* Heading */}
 				<div className="max-w-2xl mx-auto text-center lg:mb-14">

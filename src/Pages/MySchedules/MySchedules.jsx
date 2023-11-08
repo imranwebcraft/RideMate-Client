@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const MySchedules = () => {
@@ -5,6 +6,9 @@ const MySchedules = () => {
 
 	return (
 		<div className="py-10">
+			<Helmet>
+				<title>My Schedules</title>
+			</Helmet>
 			{/* Heading */}
 			<div className="max-w-2xl mx-auto text-center lg:mb-14">
 				<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">

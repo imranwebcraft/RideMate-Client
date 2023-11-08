@@ -17,8 +17,6 @@ const MyBooking = () => {
 		},
 	});
 
-	console.log(bookings?.data);
-
 	return (
 		<div>
 			{isLoading && (

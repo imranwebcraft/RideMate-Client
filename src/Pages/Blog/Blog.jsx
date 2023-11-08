@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Container from '../../Components/Container/Container';
 import blog1 from '../../assets/Images/blog1.avif';
 import authr from '../../assets/Images/imran.jpg';
@@ -5,6 +6,9 @@ import bloob from '../../assets/SVG/blog.svg';
 const Blog = () => {
 	return (
 		<div>
+			<Helmet>
+				<title>Ride Mate | Blog</title>
+			</Helmet>
 			<div>
 				<img
 					className=" w-full h-full lg:w-[700px] lg:h-[700px] absolute lg:right-0"

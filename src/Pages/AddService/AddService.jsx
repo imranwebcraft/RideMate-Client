@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import useAxios from '../../Hook/useAxios';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
 	const axios = useAxios();
@@ -26,15 +27,24 @@ const AddService = () => {
 			}
 			return res;
 		},
+		onSuccess: () => {
+			document.getElementById('reset-form').reset();
+		},
 	});
 
 	return (
 		<div className="py-20">
+			<Helmet>
+				<title>Add Service</title>
+			</Helmet>
 			<Container>
 				<div className="grid gap-3 grid-cols-1 md:grid-cols-2">
 					{/* Add service form */}
 					<div>
-						<form className=" space-y-3 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 p-4">
+						<form
+							id="reset-form"
+							className=" space-y-3 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 p-4"
+						>
 							{/* Heading */}
 							<div className="max-w-2xl mx-auto text-center lg:mb-10">
 								<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">

@@ -4,6 +4,7 @@ import regiAnimation from '../../assets/Lottie-Animation/registration.json';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
 	// Auth hook
@@ -25,6 +26,10 @@ const Register = () => {
 
 		// Validation
 
+		if (password.length < 6) {
+			return toast.error('Password should be at leat 6 character');
+		}
+
 		if (!checkbox) {
 			return toast.error('Please accept terms and condition');
 		}
@@ -32,6 +37,7 @@ const Register = () => {
 
 		try {
 			await createUser(email, password);
+			form.reset();
 			toast.success('Registration successful!', { id: toastId });
 			await profileUpdate(name, photo);
 			toast.success('Profile update successful');
@@ -56,6 +62,9 @@ const Register = () => {
 
 	return (
 		<Container>
+			<Helmet>
+				<title>Ride Mate | Register</title>
+			</Helmet>
 			<body className=" w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
 				<main className=" w-full max-w-md mx-auto p-6">
 					<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">

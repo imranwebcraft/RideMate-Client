@@ -6,6 +6,7 @@ import updateServiceAnimation from '../../assets/Lottie-Animation/update.json';
 import Lottie from 'lottie-react';
 import toast from 'react-hot-toast';
 import auth from '../../Config/firebase.config';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateService = () => {
 	const axios = useAxios();
@@ -55,6 +56,9 @@ const UpdateService = () => {
 
 	return (
 		<div className="py-10">
+			<Helmet>
+				<title>Update Service</title>
+			</Helmet>
 			<Container>
 				<div className="grid gap-3 grid-cols-1 md:grid-cols-2">
 					{/* Add service form */}
@@ -66,10 +70,10 @@ const UpdateService = () => {
 							{/* Heading */}
 							<div className="max-w-2xl mx-auto text-center lg:mb-14">
 								<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
-									Service Management Center
+									Update Your Service
 								</h2>
 								<p className="mt-1 text-gray-600 dark:text-gray-400">
-									Update, Delete, and Review Your Services
+									Try to reach more people by offering reasonable cost.
 								</p>
 							</div>
 							{/* Service Name */}
@@ -105,7 +109,7 @@ const UpdateService = () => {
 								/>
 							</div>
 							{/* Service Provider Name */}
-							<div>
+							{/* <div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Name
 								</label>
@@ -115,9 +119,9 @@ const UpdateService = () => {
 									defaultValue={auth?.currentUser?.displayName}
 									disabled
 								/>
-							</div>
+							</div> */}
 							{/* Service Provider Email */}
-							<div>
+							{/* <div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
 									Service Provider Email
 								</label>
@@ -127,7 +131,7 @@ const UpdateService = () => {
 									defaultValue={auth?.currentUser?.email}
 									disabled
 								/>
-							</div>
+							</div> */}
 							{/* Price */}
 							<div>
 								<label className="block text-sm font-medium mb-2 dark:text-white">
