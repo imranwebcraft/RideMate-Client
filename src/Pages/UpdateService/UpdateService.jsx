@@ -55,7 +55,7 @@ const UpdateService = () => {
 	};
 
 	return (
-		<div className="py-10">
+		<div className="py-20">
 			<Helmet>
 				<title>Update Service</title>
 			</Helmet>

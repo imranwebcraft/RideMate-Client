@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import Container from '../../Components/Container/Container';
 import useAxios from '../../Hook/useAxios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ServiceCard from '../../Components/ServiceCard/ServiceCard';
 import { SyncLoader } from 'react-spinners';
 import './service.css';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 const Services = () => {
 	// const queryClient = useQueryClient();
@@ -34,6 +35,11 @@ const Services = () => {
 			return res;
 		},
 	});
+
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	return (
 		<div className="py-10 service-bg">

@@ -2,11 +2,12 @@ import Lottie from 'lottie-react';
 import Container from '../../Components/Container/Container';
 import addService from '../../assets/Lottie-Animation/Addservice.json';
 import auth from '../../Config/firebase.config';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import useAxios from '../../Hook/useAxios';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 const AddService = () => {
 	const axios = useAxios();
@@ -31,6 +32,11 @@ const AddService = () => {
 			document.getElementById('reset-form').reset();
 		},
 	});
+
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	return (
 		<div className="py-20">

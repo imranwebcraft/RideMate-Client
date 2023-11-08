@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useAxios from '../../Hook/useAxios';
 import Container from '../../Components/Container/Container';
 import auth from '../../Config/firebase.config';
 import mapImg from '../../assets/Images/map.png';
 import bloob from '../../assets/SVG/blog.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
 
@@ -53,8 +53,10 @@ const ServiceDetails = () => {
 		serviceArea,
 	} = singleService || {};
 
-	console.log(singleService);
-
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 	return (
 		<div>
 			<Helmet>

@@ -1,13 +1,22 @@
 import Lottie from 'lottie-react';
 import Container from '../../Components/Container/Container';
 import loginAnimation from '../../assets/Lottie-Animation/4.json';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 const Login = () => {
 	// Auth hook
 	const { logIn, googleSignIn } = useAuth();
+
+	const navigate = useNavigate();
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location.pathname]);
+
+	console.log(location);
 
 	// Login event handler
 	const hadnleLogin = async e => {
@@ -27,6 +36,7 @@ const Login = () => {
 		try {
 			await logIn(email, password);
 			form.reset();
+			navigate(location.state ? location.state : '/');
 			toast.success('Login successful!', { id: toastId });
 		} catch (error) {
 			console.log(error);
@@ -40,18 +50,20 @@ const Login = () => {
 
 		try {
 			await googleSignIn();
+			navigate(location.state ? location.state : '/');
 			toast.success('Google sign in successful!', { id: toastId });
 		} catch (error) {
 			console.log(error);
 			toast.error('Something went wrong😥', { id: toastId });
 		}
 	};
+
 	return (
 		<Container>
 			<Helmet>
 				<title>Ride Mate | Login</title>
 			</Helmet>
-			<body className=" w-full flex flex-col-reverse lg:flex-row h-full items-center py-10">
+			<body className="w-full h-full flex flex-col-reverse lg:flex-row items-center justify-center py-32">
 				<main className=" w-full max-w-md mx-auto p-6">
 					<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-4 sm:p-7">

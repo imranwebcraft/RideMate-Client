@@ -6,6 +6,8 @@ import ServiceRow from './ServiceRow';
 import toast from 'react-hot-toast';
 import { SyncLoader } from 'react-spinners';
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const MyServices = () => {
 	const axios = useAxios();
@@ -35,7 +37,10 @@ const MyServices = () => {
 		},
 	});
 
-	console.log(services?.data);
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	return (
 		<div className=" py-10">

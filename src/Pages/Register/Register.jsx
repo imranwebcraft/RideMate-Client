@@ -1,14 +1,21 @@
 import Lottie from 'lottie-react';
 import Container from '../../Components/Container/Container';
 import regiAnimation from '../../assets/Lottie-Animation/registration.json';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const Register = () => {
 	// Auth hook
 	const { createUser, googleSignIn, profileUpdate } = useAuth();
+
+	const navigate = useNavigate();
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	// Register event handler
 	const hadnleRegister = async e => {
@@ -38,6 +45,7 @@ const Register = () => {
 		try {
 			await createUser(email, password);
 			form.reset();
+			navigate('/');
 			toast.success('Registration successful!', { id: toastId });
 			await profileUpdate(name, photo);
 			toast.success('Profile update successful');

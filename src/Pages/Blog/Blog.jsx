@@ -3,7 +3,13 @@ import Container from '../../Components/Container/Container';
 import blog1 from '../../assets/Images/blog1.avif';
 import authr from '../../assets/Images/imran.jpg';
 import bloob from '../../assets/SVG/blog.svg';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 const Blog = () => {
+	const location = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 	return (
 		<div>
 			<Helmet>

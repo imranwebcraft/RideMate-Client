@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const MySchedules = () => {
 	const location = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	return (
 		<div className="py-10">
