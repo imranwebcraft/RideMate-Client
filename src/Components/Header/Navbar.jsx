@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logoImg from '../../assets/Images/rideMate.png';
 import Container from '../Container/Container';
 import { useEffect, useState } from 'react';
@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 const Navbar = () => {
 	// Auth
 	const { user, logOut } = useAuth();
+	const navigate = useNavigate();
 
 	// Dark mode control
 	const [theme, setTheme] = useState('light');
@@ -37,6 +38,7 @@ const Navbar = () => {
 		try {
 			await logOut();
 			toast.success('Log out successfull');
+			navigate('/login');
 		} catch (error) {
 			console.log(error);
 			toast.error(error.message);

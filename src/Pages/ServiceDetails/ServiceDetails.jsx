@@ -200,7 +200,7 @@ const ServiceDetails = () => {
 										</p>
 									</div>
 									<p className="font-bold w-full text-center text-gray-800 dark:text-gray-200">
-										Cost: {price}
+										Cost: {price} TK
 									</p>
 									{/* Modal */}
 

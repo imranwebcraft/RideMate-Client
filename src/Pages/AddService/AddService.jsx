@@ -39,7 +39,7 @@ const AddService = () => {
 	}, [location]);
 
 	return (
-		<div className="py-20">
+		<div className="py-20 px-3">
 			<Helmet>
 				<title>Add Service</title>
 			</Helmet>

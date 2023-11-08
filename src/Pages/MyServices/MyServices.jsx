@@ -27,6 +27,26 @@ const MyServices = () => {
 		},
 	});
 
+	// Swal.fire({
+	// 	title: 'Are you sure?',
+	// 	text: "You won't be able to revert this!",
+	// 	icon: 'warning',
+	// 	showCancelButton: true,
+	// 	confirmButtonColor: '#3085d6',
+	// 	cancelButtonColor: '#d33',
+	// 	confirmButtonText: 'Yes, delete it!',
+	// 	background: '#000',
+	// 	color: '#8A8A8A',
+	// }).then(result => {
+	// 	if (result.isConfirmed) {
+	// 		Swal.fire({
+	// 			title: 'Deleted!',
+	// 			text: 'Your file has been deleted.',
+	// 			icon: 'success',
+	// 		});
+	// 	}
+	// });
+
 	const { mutate } = useMutation({
 		mutationKey: ['serviceRow'],
 		mutationFn: async id => {
@@ -45,10 +65,11 @@ const MyServices = () => {
 	}, [location]);
 
 	return (
-		<div className=" py-10">
+		<div className="py-10 px-3">
 			<Helmet>
 				<title>Service Management Center</title>
 			</Helmet>
+
 			<Container>
 				{/* Heading */}
 				<div className="max-w-2xl mx-auto text-center lg:mb-14">
@@ -126,7 +147,7 @@ const MyServices = () => {
 										</table>
 									</div>
 								) : (
-									<div className="flex flex-col justify-center items-center w-[500px] h-[500px] mx-auto">
+									<div className="flex flex-col justify-center items-center w-[400px] h-full lg:w-[500px] lg:h-[500px] mx-auto">
 										<Lottie animationData={noData}></Lottie>
 										<h1 className=" text-gray-900 dark:text-gray-300 text-center text-lg font-medium">
 											You haven&apos;t added any services yet. Please add

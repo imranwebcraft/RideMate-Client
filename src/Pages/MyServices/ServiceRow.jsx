@@ -92,6 +92,7 @@ const ServiceRow = ({ service, mutate }) => {
 ServiceRow.propTypes = {
 	service: PropTypes.object,
 	mutate: PropTypes.func,
+	handleDelete: PropTypes.func,
 };
 
 export default ServiceRow;

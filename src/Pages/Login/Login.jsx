@@ -63,7 +63,7 @@ const Login = () => {
 			<Helmet>
 				<title>Ride Mate | Login</title>
 			</Helmet>
-			<body className="w-full h-full flex flex-col-reverse lg:flex-row items-center justify-center py-32">
+			<body className="w-full h-full flex flex-col-reverse lg:flex-row items-center justify-center py-10 md:py-16 lg:py-32">
 				<main className=" w-full max-w-md mx-auto p-6">
 					<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-4 sm:p-7">
@@ -189,11 +189,13 @@ const Login = () => {
 						</div>
 					</div>
 				</main>
-				<Lottie
-					animationData={loginAnimation}
-					loop={true}
-					autoplay={true}
-				></Lottie>
+				<div className=" hidden lg:block">
+					<Lottie
+						animationData={loginAnimation}
+						loop={true}
+						autoplay={true}
+					></Lottie>
+				</div>
 			</body>
 		</Container>
 	);

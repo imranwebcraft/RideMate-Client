@@ -227,7 +227,7 @@ const Register = () => {
 						</div>
 					</div>
 				</main>
-				<div className=" w-[428px] h-[428px]">
+				<div className=" hidden lg:block w-[428px] h-[428px]">
 					<Lottie
 						animationData={regiAnimation}
 						loop={true}

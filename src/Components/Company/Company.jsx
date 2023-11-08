@@ -6,7 +6,6 @@ import brand4 from '../../assets/Images/gojek.png';
 import brand5 from '../../assets/Images/grab-removebg-preview.png';
 import brand7 from '../../assets/Images/uber3.png';
 import brand8 from '../../assets/Images/lyft.png';
-
 import './company.css';
 import CountUp from 'react-countup';
 

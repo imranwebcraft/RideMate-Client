@@ -10,7 +10,7 @@ const MySchedules = () => {
 	}, [location]);
 
 	return (
-		<div className="py-10">
+		<div className="py-10 px-3">
 			<Helmet>
 				<title>My Schedules</title>
 			</Helmet>
