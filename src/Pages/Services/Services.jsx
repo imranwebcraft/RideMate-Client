@@ -101,8 +101,10 @@ const Services = () => {
 				</form>
 
 				{isLoading ? (
-					<div className=" bg-white dark:bg-slate-900 h-full w-full flex justify-center items-center">
-						<SyncLoader color="#0284C7" />
+					<div>
+						<div className=" bg-white dark:bg-slate-900 h-full w-full flex justify-center items-center">
+							<SyncLoader color="#0284C7" />
+						</div>
 					</div>
 				) : (
 					<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -133,20 +135,22 @@ const Services = () => {
 								<line x1="10" x2="10.01" y1="16" y2="16" />
 							</svg>
 							<p className="mt-5 text-gray-800 dark:text-gray-300">
-								No data to show. Check Back later.
+								Server Busy. Check Back later.
 							</p>
 						</div>
+						{document.getElementById('show-all').classList.add('hidden')}
 					</div>
 				) : undefined}
 
 				{services?.length === showAll || (
 					<div
+						id="show-all"
 						onClick={() => setShowAll(services?.length)}
 						to={'/services'}
 						className="pt-16 flex justify-center items-center"
 					>
 						<button className="py-3 px-4 duration-200 flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-sky-500 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
-							Show All
+							More Service
 						</button>
 					</div>
 				)}
