@@ -18,7 +18,10 @@ const ServiceRow = ({ service, mutate }) => {
 			<td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
 				<div className="inline-flex items-center gap-x-3">
 					<div className="flex items-center gap-x-2">
-						<img className="object-cover w-32 h-32" src={serviceImage} />
+						<img
+							className="object-cover rounded-md w-32 h-32"
+							src={serviceImage}
+						/>
 						<div>
 							<h2 className="font-medium text-gray-800 dark:text-white">
 								{serviceName}
