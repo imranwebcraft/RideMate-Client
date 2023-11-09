@@ -10,8 +10,6 @@ const BookService = () => {
 	const { id } = useParams();
 	const axios = useAxios();
 
-	console.log(id);
-
 	const [date, setDate] = useState();
 	const [instruction, setInstruction] = useState();
 
@@ -23,15 +21,8 @@ const BookService = () => {
 		},
 	});
 
-	console.log(service?.data);
-
-	const {
-		serviceName,
-		serviceImage,
-
-		serviceProviderEmail,
-		price,
-	} = service?.data || {};
+	const { serviceName, serviceImage, serviceProviderEmail, price } =
+		service?.data || {};
 
 	const { mutate } = useMutation({
 		mutationKey: ['service'],
@@ -48,16 +39,25 @@ const BookService = () => {
 	return (
 		<div className=" py-10">
 			<Container>
-				<div className="bg-white border border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700  dark:shadow-gray-800">
+				{/* Heading */}
+				<div className="max-w-2xl mx-auto text-center lg:mb-10">
+					<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
+						Unlock Seamless Service Experiences
+					</h2>
+					<p className="mt-1 text-gray-600 dark:text-gray-400">
+						Book and Elevate Your Service Journey
+					</p>
+				</div>
+				<div className="bg-white border border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700  dark:shadow-gray-800 shadow-lg">
 					<div className="p-4 sm:p-7">
 						<div>
 							<img
 								src={serviceImage}
-								className="w-full h-full sm:h-60 dark:bg-gray-500"
+								className="sm:h-60 w-full h-full rounded-md dark:bg-gray-500"
 							/>
 						</div>
 						<div className="mt-8 sm:mt-10 divide-y divide-gray-200 dark:divide-gray-700">
-							<form className=" space-y-4">
+							<form className=" space-y-5">
 								<div className=" flex items-center justify-center">
 									<label className=" flex-[1] block font-medium dark:text-white">
 										Service Name:
@@ -114,14 +114,14 @@ const BookService = () => {
 								</div>
 
 								<div className=" space-y-2">
-									<label className=" text-gray-900 dark:text-white">
+									<label className=" text-gray-900 font-medium dark:text-white">
 										Special Instruction:
 									</label>
 
 									<textarea
 										onBlur={e => setInstruction(e.target.value)}
 										className="w-full border-gray-200 rounded-md text-sm focus:border-sky-500 focus:ring-sky-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-										rows="4"
+										rows="10"
 										placeholder="Enter any additional order notes..."
 									></textarea>
 								</div>

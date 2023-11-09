@@ -4,10 +4,15 @@ import Container from '../Container/Container';
 import { useEffect, useState } from 'react';
 import useAuth from '../../Hook/useAuth';
 import toast from 'react-hot-toast';
+import { PiCaretDown } from 'react-icons/pi';
+import { PiCaretUp } from 'react-icons/pi';
 const Navbar = () => {
 	// Auth
 	const { user, logOut } = useAuth();
 	const navigate = useNavigate();
+
+	// Dropdown
+	const [isOpen, setIsOpen] = useState(false);
 
 	// Dark mode control
 	const [theme, setTheme] = useState('light');
@@ -160,39 +165,57 @@ const Navbar = () => {
 							>
 								Blog
 							</NavLink>
+
+							{/* DropDown */}
 							{user ? (
-								<>
-									<NavLink
-										to="/my-services"
-										className={({ isActive }) =>
-											isActive
-												? 'text-sky-700 font-medium'
-												: 'font-medium text-gray-500 hover:text-gray-400  dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
-										}
+								<div>
+									<button
+										onClick={() => setIsOpen(!isOpen)}
+										type="button"
+										className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500 "
 									>
-										My-Services
-									</NavLink>
-									<NavLink
-										to="/add-service"
-										className={({ isActive }) =>
-											isActive
-												? 'text-sky-700 font-medium'
-												: 'font-medium text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
-										}
-									>
-										Add-Service
-									</NavLink>
-									<NavLink
-										to="/my-schedules"
-										className={({ isActive }) =>
-											isActive
-												? 'text-sky-700 font-medium'
-												: 'font-medium text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
-										}
-									>
-										My-Schedules
-									</NavLink>
-								</>
+										Dashboard
+										{!isOpen ? (
+											<PiCaretDown className="ms-2 w-3 h-4 text-gray-500"></PiCaretDown>
+										) : (
+											<PiCaretUp className="ms-2 w-3 h-4 text-gray-500"></PiCaretUp>
+										)}
+									</button>
+									{isOpen && (
+										<div className=" bg-gray-50 dark:bg-gray-800 rounded-md absolute top-[80%] pl-2 pr-5 py-3 flex flex-col gap-4 items-start z-50 shadow-lg">
+											<NavLink
+												to="/my-services"
+												className={({ isActive }) =>
+													isActive
+														? 'text-sky-700 font-medium'
+														: 'font-medium text-gray-500 hover:text-gray-400  dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
+												}
+											>
+												My-Services
+											</NavLink>
+											<NavLink
+												to="/add-service"
+												className={({ isActive }) =>
+													isActive
+														? 'text-sky-700 font-medium'
+														: 'font-medium text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
+												}
+											>
+												Add-Service
+											</NavLink>
+											<NavLink
+												to="/my-schedules"
+												className={({ isActive }) =>
+													isActive
+														? 'text-sky-700 font-medium'
+														: 'font-medium text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 transition-all duration-200 ease-in-out'
+												}
+											>
+												My-Schedules
+											</NavLink>
+										</div>
+									)}
+								</div>
 							) : undefined}
 
 							{/* Conditonal navbar */}

@@ -14,22 +14,26 @@ const ServiceCard = ({ service }) => {
 
 	return (
 		<div>
-			<div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+			<div className="flex flex-col h-full items-center justify-center w-full max-w-sm mx-auto">
 				<img
 					className="w-full h-60 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
 					src={serviceImage}
 					alt="service Image"
 				/>
 
-				<div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg hover:scale-[1.05] transition-all duration-200 md:w-64 dark:bg-gray-800">
-					<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 dark:text-gray-200">
-						{serviceName}
-					</h3>
-					<p className="text-center text-gray-800 dark:text-gray-400">
-						{serviceDescription.length > 100
-							? serviceDescription.slice(0, 80) + '...'
-							: serviceDescription}
-					</p>
+				<div className="w-56 -mt-10 flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-lg hover:scale-[1.05] transition-all duration-200 md:w-64 dark:bg-gray-800">
+					<div>
+						<h3 className="py-2 font-bold tracking-wide text-center text-gray-800 dark:text-gray-200">
+							{serviceName}
+						</h3>
+					</div>
+					<div>
+						<p className="text-center text-gray-800 dark:text-gray-400">
+							{serviceDescription.length > 100
+								? serviceDescription.slice(0, 80) + '...'
+								: serviceDescription}
+						</p>
+					</div>
 
 					<div className="p-4 flex items-center justify-center gap-2">
 						<figure>
@@ -44,7 +48,8 @@ const ServiceCard = ({ service }) => {
 						</p>
 					</div>
 
-					<div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+					{/* Action */}
+					<div className="flex mt-auto items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
 						<span className="font-bold text-gray-800 dark:text-gray-200">
 							{price} TK
 						</span>

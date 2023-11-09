@@ -50,7 +50,7 @@ const Banner = () => {
 				</div>
 
 				<div className="mt-5 text-center mx-auto">
-					<h1 className="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-gray-200">
+					<h1 className="block font-semibold text-gray-800 text-3xl md:text-5xl lg:text-6xl dark:text-gray-200">
 						<span className=" m-5">Save</span>
 						<span className=" mr-2 bg-clip-text bg-gradient-to-tl from-sky-500  to-green-500 text-transparent">
 							<Typewriter

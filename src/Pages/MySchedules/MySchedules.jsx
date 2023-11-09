@@ -15,7 +15,7 @@ const MySchedules = () => {
 				<title>My Schedules</title>
 			</Helmet>
 			{/* Heading */}
-			<div className="max-w-2xl mx-auto text-center lg:mb-14">
+			<div className="max-w-2xl mx-auto text-center mb-5 lg:mb-14">
 				<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
 					Schedule Management Center
 				</h2>

@@ -104,7 +104,7 @@ const MyPendingWork = () => {
 									</table>
 								</div>
 							) : (
-								<div className="flex flex-col justify-center items-center w-[500px] h-[500px] mx-auto">
+								<div className="flex flex-col justify-center items-center w-[300px] h-full lg:w-[500px] lg:h-[500px] mx-auto">
 									<Lottie animationData={noData}></Lottie>
 									<h1 className="text-gray-900 dark:text-gray-300 text-center text-lg font-medium">
 										You haven&apos;t had any bookings for your services yet.

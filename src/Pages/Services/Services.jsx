@@ -42,13 +42,13 @@ const Services = () => {
 	}, [location]);
 
 	return (
-		<div className="py-10 service-bg">
+		<div className="py-10 service-bg px-3">
 			<Helmet>
 				<title>Ride Mate | Services</title>
 			</Helmet>
 			<Container>
 				{/* Heading */}
-				<div className="max-w-2xl mx-auto text-center lg:mb-14">
+				<div className="max-w-2xl mx-auto text-center mb-5 lg:mb-14">
 					<h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-gray-900 dark:text-white">
 						All Avaiable Services
 					</h2>
@@ -61,7 +61,7 @@ const Services = () => {
 				<form onSubmit={handleSearch2} className="mb-10 lg:mb-20">
 					<div className="flex">
 						<button
-							className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200   dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+							className="hidden lg:flex flex-shrink-0 z-10 items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300  rounded-l-lg hover:bg-gray-200  dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
 							type="button"
 						>
 							Search By Sevice Name
@@ -72,7 +72,7 @@ const Services = () => {
 								type="text"
 								// onChange={e => setSearchValue(e.target.value)}
 								name="serviceName"
-								className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-sky-500 focus:border-sky-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-sky-500"
+								className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50  rounded-r-lgborder-l-gray-50 border-l-2 border border-gray-300 focus:ring-sky-500 focus:border-sky-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-sky-500"
 								placeholder="Search here.."
 								required
 							/>
