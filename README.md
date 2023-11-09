@@ -1,6 +1,8 @@
 # Ride Mate - Offline Service Sharing Web Application
 
-![Website](https://your-website-url.com)
+## Live Demo
+
+Explore Ride Mate by visiting our [live website](https://pawsgo-7d6e0.web.app/).
 
 Ride Mate is a web application designed for offline service sharing, primarily focusing on carpooling and ride-sharing. Carpooling helps reduce travel costs, lowers the environmental impact, and creates a more sustainable way to travel. Ride Mate empowers users to share rides and contribute to a greener environment.
 
@@ -21,10 +23,6 @@ Ride Mate offers a range of features to enhance your offline service-sharing exp
 - **Dashboard**: For registered users, the dashboard is your personal command center. Manage your added services, make edits, or remove them as needed. You can also add new services, view your booked schedules, and keep track of pending work for services booked by others.
 
 - **Database Integration**: Our robust database system seamlessly stores and retrieves user and service-related data, ensuring a smooth and reliable experience.
-
-## Live Demo
-
-Explore Ride Mate by visiting our [live website](https://your-website-url.com).
 
 ## Technologies Used
 
